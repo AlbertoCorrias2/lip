@@ -26,11 +26,11 @@ rule read_token =
   | "=" { ASSIGN }
   | "+" { PLUS }
   | ";" { SEQ }  
+  | id { ID (Lexing.lexeme lexbuf) }
+  | num { CONST (Lexing.lexeme lexbuf) }
   | atok { ATOK }
   | btok { BTOK }
   | ctok { CTOK }
   | dtok { DTOK }
   | etok { ETOK }
-  | id { ID (Lexing.lexeme lexbuf) }
-  | num { CONST (Lexing.lexeme lexbuf) }
   | eof { EOF } 
